@@ -1,0 +1,8 @@
+{
+  "name": "little-demo",
+  "version": "0.0.1",
+  "description": "my little demo",
+  "dependencies": {
+    "chalk": "^2.4.1"
+  }
+}
