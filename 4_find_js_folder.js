@@ -25,14 +25,15 @@ function findInInner(_dir, filepath) {
   });
 }
 
-async function findFolder(_dir) {
-  fs.readdir(_dir, function(err, files) {
+async function findFolder(_dir = dir) {
+  await fs.readdir(_dir, function(err, files) {
     files.forEach(file => {
       if (/node_modules/.test(file)) return;
       findInInner(_dir, `${_dir}/${file}`);
     });
   });
+
+  console.log(include_folder);
 }
 
-await findFolder();
-console.log(include_folder)
+findFolder();
