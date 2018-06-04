@@ -2,10 +2,15 @@
   "name": "little-demo",
   "version": "0.0.1",
   "description": "my little demo",
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
+    "axios": "^0.18.0",
     "chalk": "^2.4.1",
     "http": "^0.0.0",
     "http-proxy": "^1.17.0",
+    "jest": "^23.1.0",
     "path": "^0.12.7"
   }
 }
