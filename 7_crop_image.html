@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>裁剪图片</title>
+</head>
+<body>
+  <!-- 图片比例不符合要求，等比例缩放图片后，在进行裁剪 -->
+  <!-- 思路：使用背景cover，再把dom用canvas绘制出来导出图片即可 -->
+  <!-- 做出来之后，发现图片不清晰了 -->
+  <p>上传图片<p>
+  <input type="file" id="file">
+
+  <p>将图片设置为背景</p>
+  <div id="container" style="width: 200px; height: 200px; background-position: center; background-size: cover; background-color: #f2f2f2;"></div>
+
+  <p>裁剪后的图片</p>
+  <img id="cropImage" src="" alt="裁剪后的图片" />
+
+  <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+  <script type="text/javascript">
+    window.onload = () => {
+      const file = document.getElementById('file');
+      const container = document.getElementById('container');
+      const cropImage = document.getElementById('cropImage');
+
+      file.onchange = (event) => {
+        const files = event.target.files;
+
+        const reader = new FileReader();
+        reader.readAsDataURL(files[0]);
+        reader.onload = () => {
+          // set bg
+          container.style.backgroundImage = `url('${reader.result}')`;
+          html2canvas(container).then((canvas) => {
+            cropImage.src = canvas.toDataURL();
+          });
+        }
+      };
+    };
+  </script>
+</body>
+</html>
