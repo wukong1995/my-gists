@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.0.0-alpha/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.0.0-alpha/react-dom.min.js"></script>
+    <script type="text/babel">
+      class App extends React.Component{
+        state = {
+          list: [1, 2, 3]
+        }
+
+        delete = (index) => {
+          const { list } = this.state;
+          this.setState({
+            list: [
+              ...list.slice(0, index),
+              ...list.slice(index + 1)
+            ]
+          })
+        }
+
+        reverse = () => {
+          const { list } = this.state;
+          this.setState({
+            list: list.reverse()
+          })
+        }
+
+        render() {
+          return (
+            <div>
+              <h2>reverse 之后，input的位置并不会变</h2>
+              {
+                this.state.list.map((item, index) => (
+                  <p key={index}>
+                    {item}
+                    <span>-------------</span>
+                    <input type="text" />
+                    <span>-------------</span>
+                    <button onClick={() => this.delete(index)}>删除</button>
+                  </p>
+                ))
+              }
+              <button onClick={this.reverse}>reverse</button>
+            </div>
+          )
+        }
+      }
+      ReactDOM.render(
+        <App />,
+        document.getElementById('example')
+      );
+    </script>
+  </body>
+</html>
+
