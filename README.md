@@ -5,7 +5,7 @@
 3. Create server to get csrss domain data(????)
 4. Find xxx.js file in folder
 5. wait...
-6. Try to use hest
+6. Try to use jest
 7. Create crop image tool: use bg => html2canvas => img
 8. Printing loading in svg(has effect)
 9. Covert ajax to a promise form
