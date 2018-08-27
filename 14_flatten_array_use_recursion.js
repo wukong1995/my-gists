@@ -1,6 +1,6 @@
 function flattern (arr) {
   if (typeof arr === 'number') return arr;
-  if (arr.length === 1) return flattern(arr[0]);
+  if (arr.length === 1) return [].concat(flattern(arr[0]));
 
   const [first, ...other] = arr;
   return [].concat(flattern(first), flattern(other));
@@ -11,5 +11,6 @@ function flattern (arr) {
 
 const testArr = [1, 2, [[[3, 4]], 5], 6, [7, [8]], [[[[9]]]]];
 console.log(flattern(testArr));
+console.log(flattern([1]))
 
 // 尝试改成尾递归？
