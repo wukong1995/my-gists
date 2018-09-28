@@ -10,7 +10,9 @@
 8. Printing loading in svg(has effect)
 9. Covert ajax to a promise form
 10. Use compostion and render props instead of context api
-11. wait...
+11. Use mathjax to convert Latex string
 12. Create simple debounce as lodash
 13. Use index as key in rc will cause problems
 14. Use recursion to flattern array
+15. CSS effect: drop down to change close
+16. node-fetch replace fetch in brower

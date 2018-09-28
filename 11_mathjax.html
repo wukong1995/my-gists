@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wrap Selected Content with Dummy Editor</title>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            displayMath: [ ['$$','$$'], ['\\(','\\)'] ]
+            }
+          });
+    </script>
+</head>
+<body>
+<p>
+</p>
+<!--Select some random text from this textarea and click button -->
+<textarea id="wrapSelectedContent">$$
+f(n) =
+    \begin{cases}
+    n/2,  & \text{if $n$ is even} \\
+    3n+1, & \text{if $n$ is odd}
+    \end{cases}
+$$</textarea>
+<!-- Content should be load here using JavaScript and Convert it into Mathematical Function -->
+<div id="pasteSelectedContent" style="width:300px; height:300px; border:2px solid #000;"></div>
+<!-- Static Content displayed Successfully -->
+<button onclick="wrapContent();">Put Summation Sign</button>
+<script type="text/javascript">
+    function wrapContent(){
+        var selectedContent = document.getElementById("wrapSelectedContent");
+        var pasteselectedContent = document.getElementById("pasteSelectedContent");
+        // var textlength = selectedContent.textLength;
+        // var start = selectedContent.selectionStart;
+        // var end = selectedContent.selectionEnd;
+        // selectedContent.focus();
+        // selectedContent.setSelectionRange(start,end);
+        pasteselectedContent.textContent = selectedContent.value;
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, "pasteselectedContent"]);
+        // MathJax.Hub.Queue(["Text", MathJax.Hub.getAllJax('pasteSelectedContent')[0], selectedContentValue]);
+        // console.log(pasteselectedContent.innerHTML)
+        // pasteselectedContent.innerHTML = html;
+
+        // console.log("Start Index : " + start);
+        // console.log("End Index : " + end);
+        // console.log("Text Content Length : " + textlength);
+        // console.log(selectedContentValue);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #f2f2f2;
+      margin: 20px auto;
+      position: relative;
+    }
+
+    .container:hover .container__line.t-before {
+      margin-left: -13px;
+    }
+
+    .container:hover .container__line.t-after {
+      margin-left: -2px;
+    }
+
+    .container__line {
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background-color: #777;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -8px;
+      margin-top: -1px;
+      transition: margin .28s;
+    }
+
+    .container__line.t-before {
+      transform: rotate(45deg);
+    }
+
+    .container__line.t-after {
+      transform: rotate(-45deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="container__line t-before"></span>
+    <span class="container__line t-after"></span>
+  </div>
+</body>
+</html>
