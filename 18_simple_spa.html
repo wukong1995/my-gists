@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport">
+  <title>Document</title>
+</head>
+<body>
+  <nav>
+    <a href="/home">主页</a>
+    <a href="/about">个人</a>
+    <a href="/test">测试</a>
+  </nav>
+  <div id="content"></div>
+  <script>
+    const baseHref = location.href;
+    const baseUrl = '/test.html';
+
+    window.onload = () => {
+      const links = document.querySelectorAll('a');
+
+      links.forEach(item => {
+        item.addEventListener('click', (event) => {
+          event.preventDefault();
+
+          const href = item.getAttribute('href');
+          // first argumens is event state
+          history.pushState(href, null, baseHref + href);
+         setContentHtml(href);
+        });
+      });
+
+      window.onpopstate = (event) => {
+        // console.log(event);
+        // console.log(event.state);
+
+        // const currentPathname = event.target.location.pathname;
+        // const targetHref = currentPathname.split(baseUrl)[1];
+        const targetHref = event.state;
+        setContentHtml(targetHref);
+      }
+
+      const setContentHtml = (content) => {
+        document.getElementById('content').innerHTML = content;
+      }
+
+      // 接管路由
+      // 1. 得到baseUrl之后的href
+      // 2. 根据href去render
+    }
+  </script>
+</html>

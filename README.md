@@ -17,3 +17,4 @@
 15. CSS effect: drop down to change close
 16. node-fetch replace fetch in brower
 17. add(1)(2)...(n) solution
+18. simple spa
