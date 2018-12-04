@@ -1,0 +1,60 @@
+<!-- 使用pdf.js-viewer 去展示pdf -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+  <link rel="stylesheet" href="pdf.js-viewer/viewer.css">
+  <link type="application/l10n" href="pdf.js-viewer/locale/zh-CN/viewer.properties" />
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    #pdfjs {
+      height: 100%;
+    }
+
+    #viewBookmark,
+    #secondaryToolbarToggle {
+      display: none;
+    }
+
+    pdfjs-wrapper {
+      display: block;
+      height: 100%;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="pdfjs" id="pdfjs">
+    <!--#include virtual="pdf.js-viewer/viewer.html" -->
+  </div>
+
+
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script src="pdf.js-viewer/pdf.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      // window.PDFJS.locale = 'zh-CN';
+      $('div#pdfjs').load('http://localhost:65534/pdf.js-viewer/viewer.html', function (res) {
+        window.PDFJS.webViewerLoad();
+        window.PDFViewerApplication.open('http://localhost:65534/Industry_Bi-weekly_4.16_4.29_.pdf');
+      });
+    });
+  </script>
+
+</body>
+
+</html>
