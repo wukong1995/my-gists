@@ -13,7 +13,7 @@
 11. Use mathjax to convert Latex string
 12. Create simple debounce as lodash
 13. Use index as key in rc will cause problems
-14. Use recursion to flattern array
+14. Use recursion to flattern array(three options???)
 15. CSS effect: drop down to change close
 16. node-fetch replace fetch in brower
 17. add(1)(2)...(n) solution
