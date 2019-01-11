@@ -1,6 +1,7 @@
 {
-  "name": "little demo - wukong",
+  "name": "little-demo",
   "version": "0.0.1",
+  "author": "wukong",
   "description": "my little demo",
   "scripts": {
     "test": "jest"
