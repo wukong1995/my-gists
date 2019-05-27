@@ -26,5 +26,3 @@ const dfs = (path) => {
 }
 
 dfs('./src/shared/');
-
-
