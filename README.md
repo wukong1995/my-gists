@@ -22,3 +22,5 @@
 20. use pdf-viewer to show pdf
 21. A simple i18n
 22. Starry sky by three.js
+23. Batch rename file, such as: js to ts/tsx
+24. Determine whether the dependencies of the project and the dependent versions in the dependencies are consistent
