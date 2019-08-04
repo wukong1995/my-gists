@@ -1,5 +1,6 @@
 # my little demo
 
+
 1. Add tool: show tip with use chalk
 2. Create proxy server
 3. Create server to get csrss domain data(????)
@@ -24,3 +25,4 @@
 22. Starry sky by three.js
 23. Batch rename file, such as: js to ts/tsx
 24. Determine whether the dependencies of the project and the dependent versions in the dependencies are consistent
+25. Resource static: download iconfont's files
