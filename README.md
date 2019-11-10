@@ -26,3 +26,5 @@
 23. Batch rename file, such as: js to ts/tsx
 24. Determine whether the dependencies of the project and the dependent versions in the dependencies are consistent
 25. Resource static: download iconfont's files
+26. make vendor fron node_modules bu gulp
+27. download files and concat one file by gulp
