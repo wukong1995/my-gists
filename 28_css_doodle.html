@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang=“en”>
+<head>
+    <meta charset=“UTF-8”>
+    <meta name=“viewport” content=“width=device-width, initial-scale=1.0”>
+    <meta http-equiv=“X-UA-Compatible” content=“ie=edge”>
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      :root {
+        —theme: #FF9800;
+      }
+
+      html, body {
+        height: 100%;
+      }
+
+      .wrapper {
+        width: 250px;
+        height: 250px;
+        border: 5px solid var(—theme);
+        box-shadow: 0 0 18px 1px var(—theme) inset;
+        margin: 100px auto;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        overflow: hidden;
+      }
+
+      .inner {
+        width: 2px;
+        background-color: var(—theme);
+        transform-origin: top;
+        transition: transform 2s;
+      }
+
+    </style>
+</head>
+<body>
+  <div class=“wrapper”>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+    <div class=“inner”></div>
+  </div>
+  <script>
+    const getRandomColor = () => {
+      const red = Math.floor(Math.random() * 256)
+      const green = Math.floor(Math.random() * 256)
+      const blue = Math.floor(Math.random() * 256)
+
+      return `rgb(${red}, ${green}, ${blue})`
+    }
+
+    window.onload = () => {
+      const $root = document.documentElement;
+      const $wrapper = document.getElementsByClassName(‘wrapper’)[0]
+      const $inners = document.getElementsByClassName(‘inner’)
+
+      setInterval(() => {
+        const ranColorIndex = Math.floor(Math.random() * 6)
+        $root.style.setProperty(‘—theme’, getRandomColor());
+
+        for(let i = 0; i < 25; i++) {
+          const ran = Math.random() * 6
+          $inners[i].style = `transform: skew(${ran > 3 ? ‘-‘ : ‘’}45deg);`
+        }
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
