@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div><canvas id="test"></canvas></div>
+  <div>
+    <button id="btn">点击每次旋转90度</button>
+    <span id="degress">0</span>
+  </div>
+  <img src="file:///Users/laiye/Downloads/rotate-wrong4-2.jpg" width="500" />
+
+  <script>
+    window.onload = () => {
+      const $canvas = document.getElementById('test')
+      const ctx = $canvas.getContext('2d')
+      const width = 500
+      var degrees = 0
+      const $degress = document.getElementById('degress')
+
+      const drawImage = () => {
+        const image = new Image()
+
+        image.onload = () => {
+          const { naturalWidth, naturalHeight } = image
+          const scale = width / naturalWidth
+          let canvasWidth = width
+          let canvasHeight = naturalHeight * scale
+          const isRotate = degrees === 90 || degrees === 270
+
+          ctx.clearRect(0, 0, $canvas.width, $canvas.height)
+
+          if (isRotate) { 
+            canvasWidth = canvasHeight
+            canvasHeight = width
+          }
+
+          // 调整画布的大小，则会重置canvas的所有配置，save需要在改变宽高之后进行
+          $canvas.width = canvasWidth
+          $canvas.height = canvasHeight
+          ctx.fillStyle = "red"
+          ctx.save()
+
+          ctx.translate(canvasWidth / 2, canvasHeight / 2)
+          ctx.rotate(degrees * Math.PI / 180)
+
+          if (isRotate) {
+            ctx.drawImage(image, -canvasHeight / 2, -canvasWidth / 2, canvasHeight, canvasWidth)
+          } else {
+            ctx.drawImage(image, -canvasWidth / 2, -canvasHeight / 2, canvasWidth, canvasHeight)
+          }
+
+          ctx.restore()
+          ctx.fillRect(0, 0, 40, 40)
+        }
+
+        image.onerror = (error) => {
+          console.error('error', error)
+        }
+
+        image.src = 'file:///Users/laiye/Downloads/rotate-wrong4-2.jpg'
+      }
+
+
+      document.getElementById('btn').addEventListener('click', e => {
+        degrees = (degrees + 90) % 360
+        $degress.textContent = degrees
+        drawImage()
+      })
+
+      drawImage()
+    }
+  </script>
+</body>
+
+</html>
