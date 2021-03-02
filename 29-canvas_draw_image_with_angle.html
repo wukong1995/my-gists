@@ -28,7 +28,7 @@
 
         image.onload = () => {
           const { naturalWidth, naturalHeight } = image
-          const scale = width / naturalWidth
+          let scale = width / naturalWidth
           let canvasWidth = width
           let canvasHeight = naturalHeight * scale
           const isRotate = degrees === 90 || degrees === 270
@@ -36,8 +36,8 @@
           ctx.clearRect(0, 0, $canvas.width, $canvas.height)
 
           if (isRotate) { 
-            canvasWidth = canvasHeight
-            canvasHeight = width
+            scale = width / naturalHeight
+            canvasHeight = naturalWidth * scale
           }
 
           // 调整画布的大小，则会重置canvas的所有配置，save需要在改变宽高之后进行
